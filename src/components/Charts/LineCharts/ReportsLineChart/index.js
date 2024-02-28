@@ -19,15 +19,17 @@ import { useMemo } from "react";
 import PropTypes from "prop-types";
 
 // react-chartjs-2 components
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend,
+  Filler,
 } from "chart.js";
 
 // @mui material components
@@ -39,12 +41,21 @@ import Icon from "@mui/material/Icon";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 
-// ReportsBarChart configurations
-import configs from "examples/Charts/BarCharts/ReportsBarChart/configs";
+// ReportsLineChart configurations
+import configs from "components/Charts/LineCharts/ReportsLineChart/configs";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+);
 
-function ReportsBarChart({ color, title, description, date, chart }) {
+function ReportsLineChart({ color, title, description, date, chart }) {
   const { data, options } = configs(chart.labels || [], chart.datasets || {});
 
   return (
@@ -62,10 +73,10 @@ function ReportsBarChart({ color, title, description, date, chart }) {
               mt={-5}
               height="12.5rem"
             >
-              <Bar data={data} options={options} redraw />
+              <Line data={data} options={options} redraw />
             </MDBox>
           ),
-          [color, chart]
+          [chart, color]
         )}
         <MDBox pt={3} pb={1} px={1}>
           <MDTypography variant="h6" textTransform="capitalize">
@@ -89,14 +100,14 @@ function ReportsBarChart({ color, title, description, date, chart }) {
   );
 }
 
-// Setting default values for the props of ReportsBarChart
-ReportsBarChart.defaultProps = {
+// Setting default values for the props of ReportsLineChart
+ReportsLineChart.defaultProps = {
   color: "info",
   description: "",
 };
 
-// Typechecking props for the ReportsBarChart
-ReportsBarChart.propTypes = {
+// Typechecking props for the ReportsLineChart
+ReportsLineChart.propTypes = {
   color: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error", "dark"]),
   title: PropTypes.string.isRequired,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
@@ -104,4 +115,4 @@ ReportsBarChart.propTypes = {
   chart: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.array, PropTypes.object])).isRequired,
 };
 
-export default ReportsBarChart;
+export default ReportsLineChart;

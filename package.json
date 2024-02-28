@@ -2,7 +2,7 @@
   "name": "material-dashboard-2-react",
   "version": "2.2.0",
   "private": true,
-  "author": "Creative Tim",
+  "author": "Werlin",
   "license": "See license in https://www.creative-tim.com/license",
   "description": "React version of Material Dashboard 2 by Creative Tim",
   "bugs": {
@@ -18,8 +18,12 @@
     "@emotion/styled": "11.10.8",
     "@mui/icons-material": "5.11.16",
     "@mui/material": "5.12.3",
+    "bcrypt": "^5.1.1",
     "chart.js": "4.3.0",
     "chroma-js": "2.4.2",
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^9.0.2",
+    "lowdb": "^7.0.1",
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-chartjs-2": "5.2.0",
@@ -30,6 +34,7 @@
     "react-table": "7.8.0",
     "stylis": "4.1.4",
     "stylis-plugin-rtl": "2.1.1",
+    "tailwindcss": "^3.4.1",
     "yup": "1.1.1"
   },
   "scripts": {

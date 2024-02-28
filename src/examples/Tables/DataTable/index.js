@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { useMemo, useEffect, useState } from "react";
 
 // prop-types is a library for typechecking of props
@@ -132,22 +117,22 @@ function DataTable({
   };
 
   // Setting the entries starting point
-  const entriesStart = pageIndex === 0 ? pageIndex + 1 : pageIndex * pageSize + 1;
+  // const entriesStart = pageIndex === 0 ? pageIndex + 1 : pageIndex * pageSize + 1;
 
-  // Setting the entries ending point
-  let entriesEnd;
+  // // Setting the entries ending point
+  // let entriesEnd;
 
-  if (pageIndex === 0) {
-    entriesEnd = pageSize;
-  } else if (pageIndex === pageOptions.length - 1) {
-    entriesEnd = rows.length;
-  } else {
-    entriesEnd = pageSize * (pageIndex + 1);
-  }
+  // if (pageIndex === 0) {
+  //   entriesEnd = pageSize;
+  // } else if (pageIndex === pageOptions.length - 1) {
+  //   entriesEnd = rows.length;
+  // } else {
+  //   entriesEnd = pageSize * (pageIndex + 1);
+  // }
 
   return (
     <TableContainer sx={{ boxShadow: "none" }}>
-      {entriesPerPage || canSearch ? (
+      {/* {entriesPerPage || canSearch ? (
         <MDBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
           {entriesPerPage && (
             <MDBox display="flex" alignItems="center">
@@ -182,7 +167,7 @@ function DataTable({
             </MDBox>
           )}
         </MDBox>
-      ) : null}
+      ) : null} */}
       <Table {...getTableProps()}>
         <MDBox component="thead">
           {headerGroups.map((headerGroup, key) => (
@@ -201,7 +186,7 @@ function DataTable({
             </TableRow>
           ))}
         </MDBox>
-        <TableBody {...getTableBodyProps()}>
+        <TableBody sc={{}} {...getTableBodyProps()}>
           {page.map((row, key) => {
             prepareRow(row);
             return (
@@ -222,7 +207,7 @@ function DataTable({
         </TableBody>
       </Table>
 
-      <MDBox
+      {/* <MDBox
         display="flex"
         flexDirection={{ xs: "column", sm: "row" }}
         justifyContent="space-between"
@@ -264,7 +249,7 @@ function DataTable({
             )}
           </MDPagination>
         )}
-      </MDBox>
+      </MDBox> */}
     </TableContainer>
   );
 }
@@ -273,7 +258,7 @@ function DataTable({
 DataTable.defaultProps = {
   entriesPerPage: { defaultValue: 10, entries: [5, 10, 15, 20, 25] },
   canSearch: false,
-  showTotalEntries: true,
+  showTotalEntries: false,
   pagination: { variant: "gradient", color: "info" },
   isSorted: true,
   noEndBorder: false,

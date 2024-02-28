@@ -72,15 +72,14 @@ function reducer(state, action) {
 function MaterialUIControllerProvider({ children }) {
   const initialState = {
     miniSidenav: false,
-    transparentSidenav: false,
+    transparentSidenav: true,
     whiteSidenav: false,
-    sidenavColor: "info",
+    sidenavColor: "error",
     transparentNavbar: true,
     fixedNavbar: true,
     openConfigurator: false,
-    direction: "ltr",
     layout: "dashboard",
-    darkMode: false,
+    darkMode: true,
   };
 
   const [controller, dispatch] = useReducer(reducer, initialState);
